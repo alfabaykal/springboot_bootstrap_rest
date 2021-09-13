@@ -1,8 +1,8 @@
 
-package com.alfabaykal.spring.springboot.service;
+package com.alfabaykal.spring.springboot_bootstrap.service;
 
 
-import com.alfabaykal.spring.springboot.model.User;
+import com.alfabaykal.spring.springboot_bootstrap.model.User;
 
 import java.util.List;
 

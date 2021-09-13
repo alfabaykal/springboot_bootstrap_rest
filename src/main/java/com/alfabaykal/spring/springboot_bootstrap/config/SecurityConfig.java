@@ -1,7 +1,7 @@
 
-package com.alfabaykal.spring.springboot.config;
+package com.alfabaykal.spring.springboot_bootstrap.config;
 
-import com.alfabaykal.spring.springboot.config.handler.LoginSuccessHandler;
+import com.alfabaykal.spring.springboot_bootstrap.config.handler.LoginSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("com.alfabaykal.spring.springboot")
+@ComponentScan("com.alfabaykal.spring.springboot_bootstrap")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;
@@ -36,14 +36,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin()
                 // указываем страницу с формой логина
-//                .loginPage("/login")
+                .loginPage("/login")
                 //указываем логику обработки при логине
                 .successHandler(new LoginSuccessHandler())
                 // указываем action с формы логина
-//                .loginProcessingUrl("/login")
+                .loginProcessingUrl("/login")
                 // Указываем параметры логина и пароля с формы логина
-//                .usernameParameter("j_username")
-//                .passwordParameter("j_password")
+                .usernameParameter("j_username")
+                .passwordParameter("j_password")
                 // даем доступ к форме логина всем
                 .permitAll();
 
@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // указываем URL логаута
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 // указываем URL при удачном логауте
-                .logoutSuccessUrl("/")
+                .logoutSuccessUrl("/login")
                 //выклчаем кроссдоменную секьюрность (на этапе обучения неважна)
                 .and().csrf().disable();
 

@@ -1,15 +1,17 @@
-package com.alfabaykal.spring.springboot.controller;
+package com.alfabaykal.spring.springboot_bootstrap.controller;
 
-import com.alfabaykal.spring.springboot.model.Role;
-import com.alfabaykal.spring.springboot.model.User;
-import com.alfabaykal.spring.springboot.service.RoleService;
-import com.alfabaykal.spring.springboot.service.UserService;
+import com.alfabaykal.spring.springboot_bootstrap.model.Role;
+import com.alfabaykal.spring.springboot_bootstrap.model.User;
+import com.alfabaykal.spring.springboot_bootstrap.service.RoleService;
+import com.alfabaykal.spring.springboot_bootstrap.service.UserService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -28,20 +30,16 @@ public class AdminController {
     }
 
     @GetMapping()
-    public String getUsers(ModelMap model) {
+    public String getUsers(ModelMap model, Principal principal) {
         model.addAttribute("users", userService.getAllUser());
-        return "users";
+        model.addAttribute("user", userService.getUser(principal.getName()));
+        return "admin";
     }
 
     @GetMapping("/{id}")
     public String getUser(@PathVariable("id") int id, ModelMap model) {
         model.addAttribute("user", userService.getUser(id));
         return "user";
-    }
-
-    @GetMapping("/new")
-    public String newUser(@ModelAttribute("user") User user) {
-        return "new";
     }
 
     @PostMapping()
@@ -54,20 +52,23 @@ public class AdminController {
             userService.addUser(user);
         } catch (DataAccessException e) {
             response.sendError(400, "Role does not exist");
-            return "users";
+            return "admin";
         }
         return "redirect:/admin";
     }
 
-    @GetMapping("/{id}/update")
-    public String editUser(ModelMap modelMap, @PathVariable("id") int id) {
-        modelMap.addAttribute("user", userService.getUser(id));
-        return "update";
-    }
-
     @PatchMapping("/{id}")
-    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id) {
-        userService.updateUser(id, user);
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id, @ModelAttribute("my_role") String my_role) throws IOException {
+        try {
+            Set<Role> roles = new HashSet<>();
+            roles.add(roleService.getRoleByName("ROLE_" + my_role));
+            roles.add(roleService.getRoleByName("ROLE_USER"));
+            user.setRoles(roles);
+            userService.updateUser(id, user);
+        } catch (DataAccessException e) {
+            response.sendError(400, "Role does not exist");
+            return "admin";
+        }
         return "redirect:/admin";
     }
 

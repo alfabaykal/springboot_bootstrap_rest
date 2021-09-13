@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot.model;
+package com.alfabaykal.spring.springboot_bootstrap.model;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

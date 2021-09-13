@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot.model;
+package com.alfabaykal.spring.springboot_bootstrap.model;
 
 import org.springframework.security.core.GrantedAuthority;
 
@@ -78,5 +78,13 @@ public class Role implements GrantedAuthority {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        if (name.startsWith("ROLE_")) {
+            return name.substring(5);
+        }
+        return name;
     }
 }

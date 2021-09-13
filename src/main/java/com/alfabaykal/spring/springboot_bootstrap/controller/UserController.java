@@ -1,7 +1,7 @@
-package com.alfabaykal.spring.springboot.controller;
+package com.alfabaykal.spring.springboot_bootstrap.controller;
 
-import com.alfabaykal.spring.springboot.model.User;
-import com.alfabaykal.spring.springboot.service.UserService;
+import com.alfabaykal.spring.springboot_bootstrap.model.User;
+import com.alfabaykal.spring.springboot_bootstrap.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;

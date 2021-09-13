@@ -1,7 +1,7 @@
-package com.alfabaykal.spring.springboot.service;
+package com.alfabaykal.spring.springboot_bootstrap.service;
 
-import com.alfabaykal.spring.springboot.dao.RoleDao;
-import com.alfabaykal.spring.springboot.model.Role;
+import com.alfabaykal.spring.springboot_bootstrap.dao.RoleDao;
+import com.alfabaykal.spring.springboot_bootstrap.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

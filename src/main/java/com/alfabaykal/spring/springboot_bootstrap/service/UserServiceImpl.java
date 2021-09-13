@@ -1,7 +1,7 @@
-package com.alfabaykal.spring.springboot.service;
+package com.alfabaykal.spring.springboot_bootstrap.service;
 
-import com.alfabaykal.spring.springboot.dao.UserDao;
-import com.alfabaykal.spring.springboot.model.User;
+import com.alfabaykal.spring.springboot_bootstrap.dao.UserDao;
+import com.alfabaykal.spring.springboot_bootstrap.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
