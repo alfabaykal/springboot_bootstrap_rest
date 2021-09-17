@@ -13,8 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
@@ -23,12 +21,10 @@ import java.util.Set;
 @RequestMapping("/admin")
 public class AdminController {
 
-    private final HttpServletResponse response;
     private final UserService userService;
     private final RoleService roleService;
 
-    public AdminController(HttpServletResponse response, UserService userService, RoleService roleService) {
-        this.response = response;
+    public AdminController(UserService userService, RoleService roleService) {
         this.userService = userService;
         this.roleService = roleService;
     }
