@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot_bootstrap.controller;
+package com.alfabaykal.spring.springboot_bootstrap_rest.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

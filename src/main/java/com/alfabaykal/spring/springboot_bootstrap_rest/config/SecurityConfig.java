@@ -1,7 +1,7 @@
 
-package com.alfabaykal.spring.springboot_bootstrap.config;
+package com.alfabaykal.spring.springboot_bootstrap_rest.config;
 
-import com.alfabaykal.spring.springboot_bootstrap.config.handler.LoginSuccessHandler;
+import com.alfabaykal.spring.springboot_bootstrap_rest.config.handler.LoginSuccessHandler;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -17,7 +17,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
-@ComponentScan("com.alfabaykal.spring.springboot_bootstrap")
+@ComponentScan("com.alfabaykal.spring.springboot_bootstrap_rest")
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final UserDetailsService userDetailsService;

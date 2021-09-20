@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot_bootstrap.exception_handling;
+package com.alfabaykal.spring.springboot_bootstrap_rest.exception_handling;
 
 import org.springframework.dao.DataAccessException;
 

@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot_bootstrap.model;
+package com.alfabaykal.spring.springboot_bootstrap_rest.model;
 
 import org.springframework.security.core.GrantedAuthority;
 

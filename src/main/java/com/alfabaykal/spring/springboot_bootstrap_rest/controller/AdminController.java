@@ -1,11 +1,11 @@
-package com.alfabaykal.spring.springboot_bootstrap.controller;
+package com.alfabaykal.spring.springboot_bootstrap_rest.controller;
 
-import com.alfabaykal.spring.springboot_bootstrap.exception_handling.RoleDoesNotExist;
-import com.alfabaykal.spring.springboot_bootstrap.exception_handling.RoleDoesNotExistException;
-import com.alfabaykal.spring.springboot_bootstrap.model.Role;
-import com.alfabaykal.spring.springboot_bootstrap.model.User;
-import com.alfabaykal.spring.springboot_bootstrap.service.RoleService;
-import com.alfabaykal.spring.springboot_bootstrap.service.UserService;
+import com.alfabaykal.spring.springboot_bootstrap_rest.exception_handling.RoleDoesNotExist;
+import com.alfabaykal.spring.springboot_bootstrap_rest.exception_handling.RoleDoesNotExistException;
+import com.alfabaykal.spring.springboot_bootstrap_rest.model.Role;
+import com.alfabaykal.spring.springboot_bootstrap_rest.model.User;
+import com.alfabaykal.spring.springboot_bootstrap_rest.service.RoleService;
+import com.alfabaykal.spring.springboot_bootstrap_rest.service.UserService;
 import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

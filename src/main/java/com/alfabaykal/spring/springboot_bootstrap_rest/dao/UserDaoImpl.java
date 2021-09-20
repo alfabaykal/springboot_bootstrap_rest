@@ -1,6 +1,6 @@
-package com.alfabaykal.spring.springboot_bootstrap.dao;
+package com.alfabaykal.spring.springboot_bootstrap_rest.dao;
 
-import com.alfabaykal.spring.springboot_bootstrap.model.User;
+import com.alfabaykal.spring.springboot_bootstrap_rest.model.User;
 import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;

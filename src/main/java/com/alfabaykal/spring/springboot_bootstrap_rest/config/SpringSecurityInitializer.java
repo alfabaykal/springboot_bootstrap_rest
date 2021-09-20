@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot_bootstrap.config;
+package com.alfabaykal.spring.springboot_bootstrap_rest.config;
 
 import org.springframework.security.web.context.AbstractSecurityWebApplicationInitializer;
 

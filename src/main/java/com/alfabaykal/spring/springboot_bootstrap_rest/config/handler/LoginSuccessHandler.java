@@ -1,4 +1,4 @@
-package com.alfabaykal.spring.springboot_bootstrap.config.handler;
+package com.alfabaykal.spring.springboot_bootstrap_rest.config.handler;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;
