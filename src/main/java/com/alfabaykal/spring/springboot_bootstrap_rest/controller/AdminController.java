@@ -57,13 +57,13 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}")
-    public String updateUser(@ModelAttribute("user") User user, @PathVariable("id") int id, @ModelAttribute("my_role") String my_role){
+    public String updateUser(@ModelAttribute("user") User user, @PathVariable int id, @ModelAttribute("my_role") String my_role){
         try {
             Set<Role> roles = new HashSet<>();
             roles.add(roleService.getRoleByName("ROLE_" + my_role));
             roles.add(roleService.getRoleByName("ROLE_USER"));
             user.setRoles(roles);
-            userService.updateUser(id, user);
+            userService.updateUser(user);
         } catch (DataAccessException e) {
             throw new RoleDoesNotExistException("Role " + my_role + " does not exist");
         }
@@ -74,14 +74,6 @@ public class AdminController {
     public String deleteUser(@PathVariable("id") int id) {
         userService.deleteUser(id);
         return "redirect:/admin";
-    }
-
-    @ExceptionHandler
-    public ResponseEntity<RoleDoesNotExist> handleException (RoleDoesNotExistException e) {
-        RoleDoesNotExist data = new RoleDoesNotExist();
-        data.setInfo(e.getMessage());
-
-        return new ResponseEntity<>(data, HttpStatus.BAD_REQUEST);
     }
 
 }
