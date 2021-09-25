@@ -1,5 +1,6 @@
 package com.alfabaykal.spring.springboot_bootstrap_rest.model;
 
+import  com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -8,6 +9,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer"})
 @Table(name = "users")
 public class User implements UserDetails {
     @Id

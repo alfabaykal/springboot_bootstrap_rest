@@ -5,7 +5,7 @@ import com.alfabaykal.spring.springboot_bootstrap_rest.model.Role;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
+import java.util.List;
 
 @Service
 public class RoleServiceImpl implements RoleService{
@@ -25,5 +25,10 @@ public class RoleServiceImpl implements RoleService{
     @Override
     public Role getRoleByName(String name) {
         return roleRepository.getRoleByName(name);
+    }
+
+    @Override
+    public List<Role> getAllRoles() {
+        return roleRepository.findAll();
     }
 }

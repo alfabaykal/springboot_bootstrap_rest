@@ -1,6 +1,8 @@
 package com.alfabaykal.spring.springboot_bootstrap_rest.controller;
 
+import com.alfabaykal.spring.springboot_bootstrap_rest.exception_handling.RoleDoesNotExistException;
 import com.alfabaykal.spring.springboot_bootstrap_rest.exception_handling.UserDoesNotExistException;
+import com.alfabaykal.spring.springboot_bootstrap_rest.model.Role;
 import com.alfabaykal.spring.springboot_bootstrap_rest.model.User;
 import com.alfabaykal.spring.springboot_bootstrap_rest.service.RoleService;
 import com.alfabaykal.spring.springboot_bootstrap_rest.service.UserService;
@@ -20,37 +22,33 @@ public class AdminRESTController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/admin")
+    @GetMapping("/users")
     public List<User> getUsers() {
-        List<User> allUsers = userService.getAllUser();
-
-        return allUsers;
+        return userService.getAllUser();
     }
 
-    @GetMapping("/admin/{id}")
+    @GetMapping("/users/{id}")
     public User getUser(@PathVariable int id) {
         User user = userService.getUser(id);
-
         if (user == null) {
             throw new UserDoesNotExistException("User with ID = " + id + " does not exist");
         }
-
         return user;
     }
 
-    @PostMapping("/admin")
+    @PostMapping("/users")
     public User addUser(@RequestBody User user) {
         userService.addUser(user);
         return user;
     }
 
-    @PutMapping("/admin")
+    @PutMapping("/users")
     public User updateUser(@RequestBody User user) {
         userService.updateUser(user);
         return user;
     }
 
-    @DeleteMapping("admin/{id}")
+    @DeleteMapping("/users/{id}")
     public String deleteUser(@PathVariable int id) {
         User user = userService.getUser(id);
         if (user == null) {
@@ -59,5 +57,19 @@ public class AdminRESTController {
         userService.deleteUser(id);
 
         return "User with ID = " + id + " was deleted.";
+    }
+
+    @GetMapping("/roles")
+        public List<Role> getRoles() {
+        return roleService.getAllRoles();
+        }
+
+    @GetMapping("/roles/{id}")
+    public Role getRole(@PathVariable Long id) {
+        Role role = roleService.getRoleById(id);
+        if (role == null) {
+            throw new RoleDoesNotExistException("Role with ID = " + id + " does not exist");
+        }
+        return roleService.getRoleById(id);
     }
 }
