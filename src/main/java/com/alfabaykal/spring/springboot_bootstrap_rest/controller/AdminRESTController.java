@@ -8,9 +8,7 @@ import com.alfabaykal.spring.springboot_bootstrap_rest.service.RoleService;
 import com.alfabaykal.spring.springboot_bootstrap_rest.service.UserService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api")
@@ -45,11 +43,7 @@ public class AdminRESTController {
     }
 
     @PutMapping("/users")
-    public User updateUser(@RequestBody User user/*, @ModelAttribute("my_role") String my_role*/) {
-//        Set<Role> roles = new HashSet<>();
-//        roles.add(roleService.getRoleByName("ROLE_" + my_role));
-//        roles.add(roleService.getRoleByName("ROLE_USER"));
-//        user.setRoles(roles);
+    public User updateUser(@RequestBody User user) {
         userService.updateUser(user);
         return user;
     }
