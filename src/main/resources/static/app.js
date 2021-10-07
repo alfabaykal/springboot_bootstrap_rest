@@ -5,6 +5,7 @@ let deleteUserButton = document.getElementById('confirmDelete')
 let confirmEdit = document.getElementById('confirmEdit')
 let newUser = document.getElementById('addNewUserButton')
 let roleSelect = 'USER'
+let userRole = document.getElementById('currentRole')
 
 let test = ''
 $('#role').click(function () {
@@ -125,6 +126,7 @@ function editModal(userId) {
                         $('#surname0').val(user.surname)
                         $('#age0').val(user.age)
                         $('#username0').val(user.username)
+                        $('#password0').val(null)
                     })
             } else {
                 console.log('FCKFCKFCKFCKFCKFK')
